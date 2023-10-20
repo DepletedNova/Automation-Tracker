@@ -6,8 +6,6 @@ using Unity.Entities;
 
 namespace KitchenTracker.Systems
 {
-    [UpdateBefore(typeof(PushItems))]
-    [UpdateBefore(typeof(GrabItems))]
     public class TrackItems : GameSystemBase
     {
         private Dictionary<int, Entity> ItemTrackers = new();

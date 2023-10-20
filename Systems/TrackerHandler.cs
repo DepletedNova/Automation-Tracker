@@ -40,7 +40,7 @@ namespace KitchenTracker.Systems
 
             var tracker = EntityManager.CreateEntity();
             Set<CTrackerDisplay>(tracker);
-            Set<CPosition>(tracker, new Vector3(1f, 1f, 0f));
+            Set<CPosition>(tracker, new Vector3(1f, 0f, 0f));
             Set(tracker, new CRequiresView { Type = BasicTracker, ViewMode = ViewMode.Screen });
         }
         #endregion

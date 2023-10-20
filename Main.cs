@@ -19,7 +19,7 @@ namespace KitchenTracker
     {
         public const string NAME = "Automation Tracker";
         public const string GUID = "nova.production-tracker";
-        public const string VERSION = "1.0.0";
+        public const string VERSION = "1.0.1";
 
         public Main() : base(GUID, NAME, "Zoey Davis", VERSION, ">=1.0.0", Assembly.GetExecutingAssembly()) { }
 
@@ -84,14 +84,6 @@ namespace KitchenTracker
                 .AddButton("Delete Tracker", _ => TrackerHandler.DestroyTrackers());
 
             PrefManager.RegisterMenu(MenuType.PauseMenu);
-        }
-
-        public enum IncrementType
-        {
-            Half,
-            One,
-            Two,
-            Five
         }
         #endregion
 
