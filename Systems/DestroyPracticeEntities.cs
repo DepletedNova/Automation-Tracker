@@ -4,7 +4,7 @@ using Unity.Entities;
 
 namespace KitchenTracker.Systems
 {
-    public class DestroyPracticeAppliances : StartOfDaySystem
+    public class DestroyPracticeEntities : StartOfDaySystem
     {
         private EntityQuery Appliances;
         protected override void Initialise()

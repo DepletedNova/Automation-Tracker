@@ -3,37 +3,51 @@ using Unity.Entities;
 
 namespace KitchenTracker.Components
 {
-    public struct CTrackerDisplay : IComponentData { }
-    public struct CAdvancedTrackerDisplay : IComponentData { }
-
-    public struct STrackingItems : IComponentData
+    // Displays
+    public struct CTrackerDisplay : IComponentData
     {
-        public float Ticker;
+        public TrackerPosition Side;
+    }
+    public struct CItemTrackerIndicator : IComponentData { }
+
+    // Singletons
+    public struct STrackerEnabled : IComponentData
+    {
+        public int MaxID;
     }
 
-    public struct CTrackedItem : IComponentData
+    // Appliance Properties
+    public struct CItemTracker : IApplianceProperty
     {
+        public bool DestroyItem;
+
+        public bool HeldItem;
+
         public int Item;
         public ItemList Components;
-        public float TimeSinceRefresh;
-        public int TrackedItems;
-    }
 
-    [InternalBufferCapacity(8)]
-    public struct CTrackedDay : IBufferElementData
-    {
-        public int Day;
-        public int ItemCount;
+        public int UpdateAfterCount;
+        public int CountForUpdate;
+
+        public float StartTime;
+
         public float Average;
+        public uint TotalCount;
     }
-
-    public struct CItemTracker : IApplianceProperty, IComponentData
+    public struct CItemTrackerID : IComponentData
     {
-        public bool FullHolder;
-        public bool DestroyItem;
+        public int ID;
+        public TrackerPosition Display;
     }
-
     public struct CPracticeOnly : IApplianceProperty, IComponentData { }
-
     public struct CTrackerBlueprint : IAttachableProperty, IComponentData { }
+
+    // Enums
+    public enum TrackerPosition
+    {
+        None,
+        Personal,
+        Right,
+        Left
+    }
 }
